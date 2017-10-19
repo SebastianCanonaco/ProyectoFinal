@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,6 +26,7 @@ public class CursadaBaja extends JFrame implements ActionListener
     private JScrollPane scrollPanel;
     private JTextArea jTextArea;
     private JList jList;
+    private DefaultListModel listModel;
     private JPanel panel, panelDer;
     
     public CursadaBaja()
@@ -57,7 +59,8 @@ public class CursadaBaja extends JFrame implements ActionListener
         this.jButtonBuscar = new JButton("Buscar");
         this.jButtonElegir = new JButton("Elegir cursada");
         this.jButtonCancelar = new JButton("Cancelar");
-        this.jList = new JList();
+        this.listModel = new DefaultListModel();
+        this.jList = new JList(this.listModel);
         this.jList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         this.jList.setLayoutOrientation(JList.VERTICAL);
         this.scrollPanel = new JScrollPane(this.jList);
